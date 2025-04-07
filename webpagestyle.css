@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #1f1f2e;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.logo h1 span {
+    color: #00d4ff;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00d4ff;
+}
+
+.main-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    justify-content: space-between;
+    
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.intro-text h2 {
+    font-size: 36px;
+    color: #1f1f2e;
+}
+
+.intro-text p {
+    font-size: 18px;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.profile-image {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.profile-image img {
+    max-width: 100%;
+    border-radius: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.followpage {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    
+}
+
+.foot{
+    background-color: #1f1f2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: 40px;
+}
