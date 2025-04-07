@@ -80,7 +80,7 @@ body {
 .profile-image {
     flex: 1;
     text-align: center;
-    min-width: 300px;
+    min-width: 200px;
 }
 
 .profile-image img {
