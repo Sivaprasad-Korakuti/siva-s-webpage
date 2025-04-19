@@ -1,8 +1,9 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #c2e9fb, #a1c4fd);
-    color: #333;
+    color: #242020;
+    background-repeat: repeat;
+    background-color:#394f58;
 }
 
 .container {
@@ -13,9 +14,11 @@ body {
 }
 
 .navbar {
-    background-color: #1f1f2e;
+    background-image: url("paper-style-dynamic-lines-background_23-2149008629.jpg");
+    background-size: cover;
+    background-position: center;
     padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 6px rgba(30, 24, 24, 0.1);
 }
 
 .logo {
@@ -27,11 +30,21 @@ body {
 
 .logo h1 {
     color: #ffffff;
-    font-size: 28px;
+    font-size: 38px;
 }
 
 .logo h1 span {
-    color: #00d4ff;
+    font-size:26px;
+    color: #ff7200;
+}
+
+.nav-links {
+    background-color: #1f2330cc;
+    border-radius: 50px;
+    padding-right: 15px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -43,32 +56,77 @@ body {
 }
 
 .nav-links a:hover {
-    color: #00d4ff;
+    color: #ff7200;
 }
 
-.main-section {
+.search-bar {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.search-bar input[type="text"] {
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    color: white;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #ff7200;
+    font-size: 14px;
+}
+
+.search-bar button[type="submit"] {
+    background-color: #9f9f9f97;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+#Home {
+    display:flex;
     flex-wrap: wrap;
-    padding: 60px 0;
     justify-content: space-between;
+    padding:5px 10px;
+}
+.main-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background-color: #394f58;
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    margin-top:30px;
+    padding: 60px 20px;
     
 }
 
 .intro-text {
-    flex: 1;
+    flex:1;
+    text-align: left;
+    padding:20px;
     min-width: 300px;
 }
 
 .intro-text h2 {
     font-size: 36px;
-    color: #1f1f2e;
+    color: rgb(225, 225, 225);
 }
 
 .intro-text p {
     font-size: 18px;
     margin: 15px 0;
     line-height: 1.6;
+    color: rgb(225, 225, 225);
 }
 
 .highlight {
@@ -84,18 +142,93 @@ body {
 }
 
 .profile-image img {
-    max-width: 60%;
-    border-radius: 100%;
-    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #ff7200;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
 }
-.followpage {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    
+.profile-image img:hover {
+    transform: scale(1.05);
+}
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    margin: 40px auto;
+    background-color: #394f58;
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    max-width: 1000px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: rgb(225, 225, 225);
 }
 
-.foot{
+.about-section h2,
+.about-section h3 {
+    font-size: 26px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about-section p {
+    font-size: 18px;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.about-section ul {
+    list-style: disc;
+    padding: 60px 0;
+    text-align: left;
+    font-size: 18px;
+}
+
+.skills-list li {
+    transition: transform 0.2s, color 0.3s;
+}
+
+.skills-list li:hover {
+    color: #ff6600;
+    transform: scale(1.05);
+}
+
+.contact-info h1 {
+    text-align: left;
+    margin: 20px 0;
+    font-size: 26px;
+    line-height: 1.6;
+    color: rgb(225, 225, 225);
+}
+.contact-info{
+    background-color: #394f58;
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+.contact-info p,
+address {
+    margin: 5px 0;
+    text-align: left;
+    color: rgb(225, 225, 225);
+}
+
+.followpage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+    color: rgb(225, 225, 225);
+    transition: transform 0.3s ease;
+}
+.followpage img:hover{
+    transform: scale(1.05);
+}
+.foot {
     background-color: #1f1f2e;
     color: #ffffff;
     text-align: center;
