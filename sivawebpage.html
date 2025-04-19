@@ -12,38 +12,68 @@
         <div class="container logo">
             <h1>SIVA'S <span>Portfolio</span></h1>
             <nav class="nav-links">
-                <a href="#">Home</a> |
-                <a href="#about">About</a> |
-                <a href="#contact">Contact</a>
+                <a href="#home" onclick="showTab('Home')">Home</a>
+                <a href="#about" onclick="showTab('About')">About</a>
+                <a href="#contact" onclick="showTab('Contact')">Contact</a>
             </nav>
+            <form class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
         </div>
     </header>
 
     <main class="container main-section">
-        <section class="intro-text">
-            <h2>Hello 👋</h2>
-            <p>
-                Welcome to my portfolio website! I am <strong class="highlight">Sivaprasad</strong>, currently pursuing my B.Tech II<sup>nd</sup> year at
-                Madanapalle Institute of Technology and Science in the Department of Computer Science and Engineering.
-            </p>
-            <p>
-                Since 1<sup>st</sup> year, I have learned C, Java, and Python Programming Languages. Now, I am learning FSD and DBMS.
-                I am a quick learner, have time management, adaptability, and problem-solving skills.
-            </p>
-        </section>
-        <section class="profile-image">
-            <img src="me.jpg" alt="Sivaprasad's photo" target="">
+        <section id="Home">
+            <section class="intro-text">
+                <h2>Hello 👋</h2>
+                <p>
+                    Welcome to my portfolio website! I am <strong class="highlight">Sivaprasad</strong>, currently pursuing my B.Tech II<sup>nd</sup> year at
+                    Madanapalle Institute of Technology and Science in the Department of Computer Science and Engineering.
+                </p>
+            </section>
+            <section class="profile-image">
+                <img src="me.jpg" alt="Sivaprasad's photo" style="width: 200px; height: 200px; border-radius: 50%; border: 2px solid #000;">
+            </section>
         </section>
     </main>
-    <p style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:20pt;">Follow me: </p>
-    <section class="followpage">
+
+    <section id="About" class="about-section">
+        <h2>About Me</h2>
+        <p>I am a passionate learner and a tech enthusiast. I love exploring new <br> technologies and applying them to solve real-world problems. My interests <br> include web development, data science, and artificial intelligence.</p>
+        <p>I am a quick learner and enjoy taking on new challenges. I believe in <br> continuous learning and strive to improve my skills every day.</p> 
+        <p>In my free time, I enjoy playing video games, exploring new things and <br> spending time with friends and family.</p>
         <div>
-            <a type="button" href="https://www.instagram.com/shiva_8247_/"><img src="https://freelogopng.com/images/all_img/1658587303instagram-png.png" style="padding-left:10px;width:40px;"></a> 
-            <a type="button" href="http://www.youtube.com/@Rudra_ksp_edits"><img src="https://pngimg.com/d/youtube_PNG102352.png"style="padding-left:10px;width:50px;"></a>
-            <a type="button" href="https://www.facebook.com/k.siva.prasad.7359"><img src="https://cdn.pixabay.com/photo/2021/08/10/17/03/facebook-6536473_1280.png" style="padding-left:10px;width:40px;"></a>
-            <a type="button" href="https://www.linkedin.com/in/k-siva-prasad-0089662ba/"><img src="https://freelogopng.com/images/all_img/1656996524linkedin-app-icon.png"style="padding-left:10px;width:40px;"></a>
+            <h3 id="skills">Skills</h3>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C</li>
+                <li>SQL</li>
+                <li>Data Structures</li>
+            </ul>
         </div>
-    </section>
+        </section>
+        <section id="contact" class="contact-info">
+            <h1>Contact</h1>
+            <p>Email: <a href="mailto:ksivaprasad@gmail.com">ksivaprasad032@gmail.com</a></p>
+            <p>Phone No: <a href="tel:+918247588599">+91 8247588599</a></p>
+            <address><u>Address:</u> Madanapalle, Andhra Pradesh, India.</address>
+        </section>
+
+        <section class="followpage">
+            <div>
+                <p style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:20pt;">Follow me: </p>
+                <a href="https://www.instagram.com/shiva_8247_/"><img src="https://freelogopng.com/images/all_img/1658587303instagram-png.png" style="padding-left:10px;width:40px;"></a>
+                <a href="http://www.youtube.com/@Rudra_ksp_edits"><img src="https://pngimg.com/d/youtube_PNG102352.png" style="padding-left:10px;width:50px;"></a>
+                <a href="https://www.facebook.com/k.siva.prasad.7359"><img src="https://cdn.pixabay.com/photo/2021/08/10/17/03/facebook-6536473_1280.png" style="padding-left:10px;width:40px;"></a>
+                <a href="https://www.linkedin.com/in/k-siva-prasad-0089662ba/"><img src="https://freelogopng.com/images/all_img/1656996524linkedin-app-icon.png" style="padding-left:10px;width:40px;"></a>
+            </div>
+        </section>
+
     <footer class="foot">
         &copy; 2025 SIVA'S Website, All Rights Reserved.
     </footer>
