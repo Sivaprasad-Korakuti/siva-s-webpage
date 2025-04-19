@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #242020;
     background-repeat: repeat;
-    background-color:#394f58;
+    background-color:rgb(45, 59, 72);
 }
 
 .container {
@@ -94,6 +94,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     padding:5px 10px;
+    align-items: center;
 }
 .main-section {
     display: flex;
