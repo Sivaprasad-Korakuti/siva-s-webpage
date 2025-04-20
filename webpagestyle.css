@@ -18,7 +18,7 @@ body {
     background-size: cover;
     background-position: center;
     padding: 20px 0;
-    box-shadow: 0 8px 6px rgba(30, 24, 24, 0.1);
+    box-shadow: 5px 6px 6px rgba(255, 255, 255, 0.404);
 }
 
 .logo {
@@ -81,6 +81,7 @@ body {
     background-color: #9f9f9f97;
     color: #ffffff;
     border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 50px;
     padding: 5px 10px;
     margin-top: 10px;
@@ -94,7 +95,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     padding:5px 10px;
-    align-items: center;
+    align-items:center;
 }
 .main-section {
     display: flex;
@@ -108,6 +109,7 @@ body {
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
     margin-top:30px;
     padding: 60px 20px;
+    transition: transform 0.3s ease;
     
 }
 
@@ -150,6 +152,9 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease;
 }
+.main-section:hover {
+    transform: scale(1.02);
+}
 .profile-image img:hover {
     transform: scale(1.05);
 }
@@ -164,8 +169,11 @@ body {
     max-width: 1000px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     color: rgb(225, 225, 225);
+    transition: transform 0.3s ease;
 }
-
+.about-section:hover {
+    transform: scale(1.02);
+}
 .about-section h2,
 .about-section h3 {
     font-size: 26px;
@@ -181,18 +189,19 @@ body {
 
 .about-section ul {
     list-style: disc;
-    padding: 60px 0;
     text-align: left;
     font-size: 18px;
 }
-
+#skills{
+    text-align:left;
+}
 .skills-list li {
     transition: transform 0.2s, color 0.3s;
 }
 
 .skills-list li:hover {
     color: #ff6600;
-    transform: scale(1.05);
+    transform: scale(1.05,1.05);
 }
 
 .contact-info h1 {
@@ -210,12 +219,24 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     margin: 40px auto;
     max-width: 1000px;
+    transition: transform 0.3s ease;
+}
+.contact-info:hover {
+    transform: scale(1.02);
 }
 .contact-info p,
 address {
     margin: 5px 0;
     text-align: left;
     color: rgb(225, 225, 225);
+}
+.contact-info a {
+    color: #1900ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-info a:hover {
+    color: #ff6600;
 }
 
 .followpage {
@@ -237,3 +258,4 @@ address {
     font-size: 14px;
     margin-top: 40px;
 }
+  
