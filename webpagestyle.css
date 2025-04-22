@@ -109,7 +109,8 @@ body {
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
     margin-top:30px;
     padding: 60px 20px;
-    transition: transform 0.3s ease;    
+    transition: transform 0.3s ease;
+    
 }
 
 .intro-text {
@@ -202,7 +203,28 @@ body {
     color: #ff6600;
     transform: scale(1.05,1.05);
 }
-
+.projects-section {
+    background-color: #394f58;
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    margin: 40px auto;
+    max-width: 1000px;
+    color:#ffffff;
+    transition: transform 0.3s ease;
+}
+.projects-section:hover {
+    transform: scale(1.02);
+}
+.project-list {
+    padding: 20px 0;
+}
+#project-links {
+    color: #ff7200;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 .contact-info h1 {
     text-align: left;
     margin: 20px 0;
@@ -232,7 +254,7 @@ address {
 .contact-info a {
     color: #1900ff;
     text-decoration: none;
-    transition: color 0.3s ease;    
+    transition: color 0.3s ease;
 }
 .contact-info a:hover {
     color: #ff6600;
