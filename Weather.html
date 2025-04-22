@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Forecast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background 0.5s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: #fff;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .container h2 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input {
+      background-color: #fefefe;
+      color: #333;
+    }
+
+    button {
+      background: linear-gradient(135deg, #00bcd4, #2196f3);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      text-align: left;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+      line-height: 1.6;
+    }
+
+    .result p {
+      margin: 8px 0;
+    }
+
+    .result p::before {
+      content: "☀️ ";
+      margin-right: 5px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🌦️ Weather Forecast</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div class="result" id="weatherResult"></div>
+  </div>
+
+  <script>
+    const apiKey = '91fb7b0fce7d8d511ddc5f831700fcde'; // Your API key
+
+    function getWeather() {
+      const city = document.getElementById("cityInput").value.trim();
+      const resultDiv = document.getElementById("weatherResult");
+
+      if (!city) {
+        resultDiv.innerHTML = "⚠️ Please enter a city name.";
+        resultDiv.style.opacity = "1";
+        return;
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error("City not found");
+          return response.json();
+        })
+        .then(data => {
+          const temperature = data.main.temp;
+          const weather = data.weather[0].description;
+          const humidity = data.main.humidity;
+          const wind = data.wind.speed;
+
+          const weatherText = `
+            <p><strong>City:</strong> ${city}</p>
+            <p><strong>Temperature:</strong> ${temperature} °C</p>
+            <p><strong>Condition:</strong> ${weather}</p>
+            <p><strong>Humidity:</strong> ${humidity}%</p>
+            <p><strong>Wind:</strong> ${wind} m/s</p>
+          `;
+
+          resultDiv.innerHTML = weatherText;
+          resultDiv.style.opacity = "1";
+
+          changeBackground(weather);
+          speakText(`The weather in ${city} is ${weather} with ${temperature} degrees Celsius.`);
+        })
+        .catch(error => {
+          resultDiv.innerHTML = "❌ " + error.message;
+          resultDiv.style.opacity = "1";
+          speakText("Sorry, I couldn't fetch the weather.");
+        });
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utterance);
+      }
+    }
+
+    function changeBackground(weather) {
+      weather = weather.toLowerCase();
+      let url = "";
+
+      if (weather.includes("clear")) {
+        url = "https://images.unsplash.com/photo-1501973801540-537f08ccae7b";
+      } else if (weather.includes("cloud")) {
+        url = "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17";
+      } else if (weather.includes("rain")) {
+        url = "https://images.unsplash.com/photo-1501594907352-04cda38ebc29";
+      } else if (weather.includes("snow")) {
+        url = "https://images.unsplash.com/photo-1547043359-4bb1104f4e4f";
+      } else {
+        url = "https://images.unsplash.com/photo-1506744038136-46273834b3fb";
+      }
+
+      document.body.style.backgroundImage = `url('${url}')`;
+    }
+  </script>
+</body>
+</html>
