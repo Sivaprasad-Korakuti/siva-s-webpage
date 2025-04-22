@@ -98,18 +98,15 @@ body {
     align-items:center;
 }
 .main-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    border-radius:20px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    background-color: #394f58;
+   background-color: #394f58;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    margin-top:30px;
-    padding: 60px 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    margin: 40px auto;
+    max-width: 1000px;
     transition: transform 0.3s ease;
+    
     
 }
 
