@@ -90,7 +90,7 @@ body {
     margin-left: 10px;
     transition: background-color 0.3s ease;
 }
-#Home {
+.home-section{
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
