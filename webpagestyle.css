@@ -98,7 +98,7 @@ body {
     align-items:center;
 }
 .main-section {
-   background-color: #394f58;
+    background-color: #394f58;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
     padding: 20px;
     border-radius: 20px;
@@ -106,7 +106,6 @@ body {
     margin: 40px auto;
     max-width: 1000px;
     transition: transform 0.3s ease;
-    
     
 }
 
