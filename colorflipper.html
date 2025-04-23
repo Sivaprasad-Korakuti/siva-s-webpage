@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        div{
+            text-align: center;
+            padding:2rem;
+            border-radius: 30px;
+            max-width:fit-content;
+            margin:auto;
+            background-color:black;
+            color:aliceblue
+        }
+        button{
+                margin:auto;
+                border-radius:20px;
+                padding:5px 10px;
+                border-color: grey;
+                color:black;
+                margin-top:2rem;
+                margin-left:15rem;
+                border-width: 5px;
+                }
+    </style>
+</head>
+<body>
+    <div id="colorflipper"> background color code:<span id="colorcode">#1111</span></div>
+    <button id="colorflipper" onclick="changeColor"> click me</button>
+    <script>
+        const colors = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "cyan", "magenta", "lime"];
+        let currentIndex = 0;
+
+        function getRandom() {
+            return Math.floor(Math.random() * colors.length);
+        }
+
+        document.addEventListener("click", function () {
+            currentIndex = getRandom();
+            document.body.style.backgroundColor = colors[currentIndex];
+            document.getElementById("colorcode").innerText = colors[currentIndex];
+        });
+
+    </script>
+</body>
+</html>

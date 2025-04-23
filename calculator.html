@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #bts{
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding:10px;
+            gap:10px;
+            margin: 0 auto;
+            margin-top: 20px;
+            border-radius:20px;
+            width:fit-content;
+            background-color: #000000;
+        }
+        #display{
+            margin-top:10px;
+            background-color:rgb(162, 162, 162);
+            height:40px;
+            margin-bottom:0;
+            border-radius:20px;
+            text-align:right;
+            padding:10px;
+            width: 333px; /* Adjust width as needed */
+            font-size: 18px;
+        }
+        .cal{
+            background-color:black;
+            margin-left:35%;
+            margin-right:35%;
+            border-radius:30px;
+            padding-top:1px;
+            padding-left:2px;
+            padding-right:2px;
+        }
+        #bt{
+            text-align:center;
+            font-size: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border: none;
+            color:white;
+            cursor: pointer;
+            border-radius: 50px;
+            background-color:#e8e3e39c;
+            transition: color 0.3s ease;
+        }
+        #bt:hover{
+            background-color:rgb(230, 229, 228);
+            color:black;
+            transform:scale(1.05);
+        }
+    </style>
+</head>
+<body><h1 align="center">Simple Calculator</h1>
+    <section class="cal">
+    <input type="text" id="display">
+    <div id="bts">
+    <button onclick="deleteAll()" id="bt">AC</button>
+    <button onclick="appendValue('%')" id="bt"id="bt">%</button>
+    <button onclick="deleteLastValue()"id="bt">&#9003;</button>
+    <button onclick="appendValue('/')"id="bt">/</button>
+    <button onclick="appendValue('7')"id="bt">7</button>
+    <button onclick="appendValue('8')"id="bt">8</button>
+    <button onclick="appendValue('9')"id="bt">9</button>
+    <button onclick="appendValue('*')"id="bt">X</button>
+    <button onclick="appendValue('4')"id="bt">4</button>
+    <button onclick="appendValue('5')"id="bt">5</button>
+    <button onclick="appendValue('6')"id="bt">6</button>
+    <button onclick="appendValue('-')"id="bt">-</button>
+    <button onclick="appendValue('1')"id="bt">1</button>
+    <button onclick="appendValue('2')"id="bt">2</button>
+    <button onclick="appendValue('3')"id="bt">3</button>
+    <button onclick="appendValue('+')"id="bt">+</button>
+    <button onclick="appendValue('00')"id="bt">00</button>
+    <button onclick="appendValue('0')"id="bt">0</button>
+    <button onclick="appendValue('.')"id="bt">.</button>
+    <button onclick="calculateResult()"id="bt">=</button>
+    </div>
+</section>
+    <script>
+        let rshown=false;
+        let keyboard=document.getElementById('display');
+        document.addEventListener("keydown",function(event){
+            if(event.key=='Enter')
+                calculateResult();
+            else if(event.key=='Backspace')
+                deleteLastValue();
+            else if(event.key=='Delete')
+                deleteAll();
+            else if(event.key==1)
+                appendValue('1');
+            else if(event.key==2)
+                appendValue('2');
+            else if(event.key==3)
+                appendValue('3');
+            else if(event.key==4)
+                appendValue('4');
+            else if(event.key==5)
+                appendValue('5');
+            else if(event.key==6)
+                appendValue('6');
+            else if(event.key==7)
+                appendValue('7');
+            else if(event.key==8)
+                appendValue('8');
+            else if(event.key==9)
+                appendValue('9');
+            else if(event.key==0)
+                appendValue('0');
+            else if(event.key=='+')
+                appendValue('+');
+            else if(event.key=='-')
+                appendValue('-');
+            else if(event.key=='*')
+                appendValue('*');
+            else if(event.key=='/')
+                appendValue('/');
+            else if(event.key=='%')
+                appendValue('%');
+            else if(event.key=='.')
+                appendValue('.');
+            else if(event.key=='=')
+                calculateResult();        
+            
+        });
+            function appendValue(val){
+                let displayed=document.getElementById('display');
+                if(rshown){
+                    displayed.value='';
+                    rshown=false;
+                }
+                displayed.value+=val;
+            }
+            function deleteAll(){
+                document.getElementById('display').value=' ';
+            }
+            function deleteLastValue(){
+                let current=document.getElementById('display').value;
+                document.getElementById('display').value=current.slice(0,-1);
+            }
+
+            function calculateResult(){
+                try{
+               let result= eval(document.getElementById('display').value);
+               document.getElementById('display').value=result;
+               rshown=true;
+            }
+            catch(error){
+                alert("invalid entry! check and re enter the values.")
+            }
+        }
+    </script>
+    
+</body>
+</html>
