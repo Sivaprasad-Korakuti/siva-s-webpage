@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #242020;
     background-repeat: repeat;
-    background-color:rgb(45, 59, 72);
+    background-color: rgb(45, 59, 72);
 }
 
 .container {
@@ -34,7 +34,7 @@ body {
 }
 
 .logo h1 span {
-    font-size:26px;
+    font-size: 26px;
     color: #ff7200;
 }
 
@@ -90,13 +90,15 @@ body {
     margin-left: 10px;
     transition: background-color 0.3s ease;
 }
-.home-section{
-    display:flex;
+
+.home-section {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding:5px 10px;
-    align-items:center;
+    padding: 5px 10px;
+    align-items: center;
 }
+
 .main-section {
     background-color: #394f58;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -106,13 +108,13 @@ body {
     margin: 40px auto;
     max-width: 1000px;
     transition: transform 0.3s ease;
-    
+
 }
 
 .intro-text {
-    flex:1;
+    flex: 1;
     text-align: left;
-    padding:20px;
+    padding: 20px;
     min-width: 300px;
 }
 
@@ -148,12 +150,15 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease;
 }
+
 .main-section:hover {
     transform: scale(1.02);
 }
+
 .profile-image img:hover {
     transform: scale(1.05);
 }
+
 .about-section {
     padding: 60px 20px;
     text-align: center;
@@ -167,9 +172,11 @@ body {
     color: rgb(225, 225, 225);
     transition: transform 0.3s ease;
 }
+
 .about-section:hover {
     transform: scale(1.02);
 }
+
 .about-section h2,
 .about-section h3 {
     font-size: 26px;
@@ -188,17 +195,20 @@ body {
     text-align: left;
     font-size: 18px;
 }
-#skills{
-    text-align:left;
+
+#skills {
+    text-align: left;
 }
+
 .skills-list li {
     transition: transform 0.2s, color 0.3s;
 }
 
 .skills-list li:hover {
     color: #ff6600;
-    transform: scale(1.05,1.05);
+    transform: scale(1.05, 1.05);
 }
+
 .projects-section {
     background-color: #394f58;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -207,20 +217,23 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     margin: 40px auto;
     max-width: 1000px;
-    color:#ffffff;
+    color: #ffffff;
     transition: transform 0.3s ease;
 }
+
 .projects-section:hover {
     transform: scale(1.02);
 }
+
 .project-list {
     padding: 20px 0;
 }
-#project-links {
+
+#projects a {
     color: #ff7200;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
+
 .contact-info h1 {
     text-align: left;
     margin: 20px 0;
@@ -228,7 +241,8 @@ body {
     line-height: 1.6;
     color: rgb(225, 225, 225);
 }
-.contact-info{
+
+.contact-info {
     background-color: #394f58;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
     padding: 20px;
@@ -238,20 +252,24 @@ body {
     max-width: 1000px;
     transition: transform 0.3s ease;
 }
+
 .contact-info:hover {
     transform: scale(1.02);
 }
+
 .contact-info p,
 address {
     margin: 5px 0;
     text-align: left;
     color: rgb(225, 225, 225);
 }
+
 .contact-info a {
     color: #1900ff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 .contact-info a:hover {
     color: #ff6600;
 }
@@ -264,9 +282,11 @@ address {
     color: rgb(225, 225, 225);
     transition: transform 0.3s ease;
 }
-.followpage img:hover{
+
+.followpage img:hover {
     transform: scale(1.05);
 }
+
 .foot {
     background-color: #1f1f2e;
     color: #ffffff;
@@ -275,4 +295,3 @@ address {
     font-size: 14px;
     margin-top: 40px;
 }
-  
