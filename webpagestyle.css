@@ -1,4 +1,4 @@
-body {
+eebody {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: #242020;
@@ -246,8 +246,8 @@ body {
     color: #ff7200;
     text-decoration: none;
 }
-.project-items a:visited{ color:white; }
-.project-items a:active{ color:green; }
+.project-item a:visited{ color:white; }
+.project-item a:active{ color:green; }
 
 .contact-info h1 {
     text-align: left;
@@ -310,4 +310,5 @@ address {
     font-size: 14px;
     margin-top: 40px;
 }
+
 
