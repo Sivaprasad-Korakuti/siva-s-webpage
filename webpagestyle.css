@@ -246,8 +246,14 @@ eebody {
     color: #ff7200;
     text-decoration: none;
 }
-.project-item a:visited{ color:white; }
-.project-item a:active{ color:green; }
+
+#projects a:visited {
+    color: white;
+}
+
+#projects a:active {
+    color: green;
+}
 
 .contact-info h1 {
     text-align: left;
@@ -310,5 +316,3 @@ address {
     font-size: 14px;
     margin-top: 40px;
 }
-
-
