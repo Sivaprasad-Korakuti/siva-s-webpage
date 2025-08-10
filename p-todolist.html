@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST APPLICATION</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #f6d7b9, rgba(220, 219, 218, 0.5));
+        }
+
+        #header {
+            text-align: center;
+            color: rgb(255, 88, 38);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 100px;
+        }
+
+        #header:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        }
+
+        section {
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #inputtask {
+            width: 400px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            color: rgb(92, 73, 51);
+            position: relative;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        section {
+            background-color: #fbeee1;
+            max-width: fit-content;
+            flex-direction: column;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(8, 0, 5, 0.6);
+            border-radius: 10px;
+        }
+
+        #add {
+            padding: 5px 5px;
+            margin-left: 350px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: rgb(255, 88, 38);
+            color: white;
+            position: relative;
+            margin-top: -55px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: circle;
+            padding: 0;
+            margin: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.2rem;
+            color: rgb(151, 83, 6);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 id="header">To Do List</h1>
+    </div>
+    <section>
+        <input type="text" id="inputtask" placeholder="Enter your task here..." />
+        <button id="add" onclick="addtask()">Add Task</button>
+        <div>
+            <ul id="list-container">
+            </ul>
+        </div>
+    </section>
+    <script>
+
+        function addtask() {
+            const task = document.getElementById('inputtask').value;
+            if (task.trim() === "") {
+                alert("Please enter the task....");
+                return;
+            }
+            const li = document.createElement('li');
+            li.innerHTML = `${task}<span><button onclick="deletetask(this)"> X </button"></span>`;
+            document.getElementById('list-container').appendChild(li);
+            document.getElementById('inputtask').value = "";
+        }
+
+        function deletetask(todotask) {
+            const li = todotask.parentNode.parentNode;
+            li.remove();
+            if (document.getElementById('list-container').children.length === 0) {
+                alrent("All tasks have been deleted. ");
+            }
+        }
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                addtask();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

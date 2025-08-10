@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size:30pt;
+            color:white;
+            width:20vw;
+            height:30vh;
+            display:flex;
+            margin:15% 35%;
+            position:absolute;
+            align-items:center;
+            justify-content: center;
+        }
+        #layer0{
+            background-color: brown;
+            left:0;
+            top:0;
+            z-index:0;
+        }
+        #layer1{
+            background-color: red;
+            left:-20px;
+            top:-20px;
+            z-index:-1;
+        }
+        #layer2{
+            background-color: orange;
+            left:-40px;
+            top:-40px;
+            z-index:-2;
+        }
+        #layer3{
+            background-color: gold;
+             left:-60px;
+            top:-60px;
+            z-index:-3;
+        }
+        #layer4{
+            background-color: yellow;
+             left:-80px;
+            top:-80px;
+            z-index:-4;
+        }
+        #layer5{
+            background-color: lightskyblue;
+             left:-100px;
+            top:-100px;
+            z-index:-5;
+        }
+        #layer6{
+            background-color: grey;
+             left:-120px;
+            top:-120px;
+            z-index:-6;
+        }
+        #layer7{
+            background-color: green;
+             left:-140px;
+            top:-140px;
+            z-index:-7;
+        }
+        #layer8{
+            background-color: blueviolet;
+             left:-160px;
+            top:-160px;
+            z-index:-8;
+        }
+        #layer9{
+            background-color:pink;
+             left:-180px;
+            top:-180px;
+            z-index:-9;
+        }
+    </style>
+</head>
+<body>
+    <section id="divs">
+    <div id="layer0">0</div>
+    <div id="layer1">1</div>
+    <div id="layer2">2</div>
+    <div id="layer3">3</div>
+    <div id="layer4">4</div>
+    <div id="layer5">5</div>
+    <div id="layer6">6</div>
+    <div id="layer7">7</div>
+    <div id="layer8">8</div>
+    <div id="layer9">9</div>
+    </section>
+    
+    <script>
+        // Store original z-index and position values
+        const originalValues = {
+            layer0: { zIndex: "0", left: "0px", top: "0px" },
+            layer1: { zIndex: "-1", left: "-20px", top: "-20px" },
+            layer2: { zIndex: "-2", left: "-40px", top: "-40px" },
+            layer3: { zIndex: "-3", left: "-60px", top: "-60px" },
+            layer4: { zIndex: "-4", left: "-80px", top: "-80px" },
+            layer5: { zIndex: "-5", left: "-100px", top: "-100px" },
+            layer6: { zIndex: "-6", left: "-120px", top: "-120px" },
+            layer7: { zIndex: "-7", left: "-140px", top: "-140px" },
+            layer8: { zIndex: "-8", left: "-160px", top: "-160px" },
+            layer9: { zIndex: "-9", left: "-180px", top: "-180px" }
+        };
+        
+        function makeOthersSame(clickedLayer) {
+            // Get all layers
+            const layers = document.querySelectorAll('div[id^="layer"]');
+            // Reset all layers except the clicked one to their original values
+            layers.forEach(layer => {
+                if (layer.id !== clickedLayer) {
+                    layer.style.zIndex = originalValues[layer.id].zIndex;
+                    layer.style.left = originalValues[layer.id].left;
+                    layer.style.top = originalValues[layer.id].top;
+                }
+            });
+        }
+        
+        document.getElementById('layer0').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer0');
+            console.log("layer0 z-index changed to 1");
+        });
+        
+        document.getElementById('layer1').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer1');
+            console.log("layer1 z-index changed to 1");
+        });
+        
+        document.getElementById('layer2').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer2');
+            console.log("layer2 z-index changed to 1");
+        });
+        
+        document.getElementById('layer3').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer3');
+            console.log("layer3 z-index changed to 1");
+        });
+        
+        document.getElementById('layer4').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer4');
+            console.log("layer4 z-index changed to 1");
+        });
+        
+        document.getElementById('layer5').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer5');
+            console.log("layer5 z-index changed to 1");
+        });
+        
+        document.getElementById('layer6').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer6');
+            console.log("layer6 z-index changed to 1");
+        });
+        
+        document.getElementById('layer7').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer7');
+            console.log("layer7 z-index changed to 1");
+        });
+        
+        document.getElementById('layer8').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer8');
+            console.log("layer8 z-index changed to 1");
+        });
+        
+        document.getElementById('layer9').addEventListener('click', function(){
+            this.style.zIndex = "1";
+            makeOthersSame('layer9');
+            console.log("layer9 z-index changed to 1");
+        });
+    </script>
+</body>
+</html>
