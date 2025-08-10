@@ -197,6 +197,9 @@ body {
 }
 
 #skills {
+    display:flex;
+    flex-wrap:wrap;
+    width:30vw;
     text-align: left;
 }
 
@@ -295,3 +298,4 @@ address {
     font-size: 14px;
     margin-top: 40px;
 }
+
