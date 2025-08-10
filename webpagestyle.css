@@ -199,7 +199,8 @@ body {
 #skills {
     display:flex;
     flex-wrap:wrap;
-    width:30vw;
+    width:90vw;
+    padding:30px;
     text-align: left;
 }
 
@@ -209,7 +210,7 @@ body {
 
 .skills-list li:hover {
     color: #ff6600;
-    transform: scale(1.05, 1.05);
+    transform: scale(1.0, 1.0);
 }
 
 .projects-section {
@@ -298,4 +299,5 @@ address {
     font-size: 14px;
     margin-top: 40px;
 }
+
 
