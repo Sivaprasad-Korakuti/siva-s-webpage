@@ -1,139 +1,229 @@
-eebody {
+/* New CSS Variables */
+:root {
+    --bg-color: #0d1117;
+    --sidebar-bg: #161b22;
+    --content-bg: #21262d;
+    --text-color: #c9d1d9;
+    --accent-color: #58a6ff;
+    --border-color: #30363d;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --transition-speed: 0.4s;
+}
+
+body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    color: #242020;
-    background-repeat: repeat;
-    background-color: rgb(45, 59, 72);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    overflow-x: hidden;
+    position: relative;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+/* Hamburger Menu Button (for all screens) */
+.hamburger {
+    display: flex;
+    /* Always visible */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1002;
+    width: 40px;
+    height: 40px;
+    background-color: var(--sidebar-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.hamburger span:last-child {
+    margin-bottom: 0;
+}
+
+/* Transform hamburger to 'X' */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: var(--sidebar-bg);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 0 15px var(--shadow-color);
+    transition: transform var(--transition-speed) ease;
+    z-index: 1000;
+    /* Default is visible. JS will toggle 'closed' to hide it. */
+    transform: translateX(0);
 }
 
-.navbar {
-    background-image: url("paper-style-dynamic-lines-background_23-2149008629.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 20px 0;
-    box-shadow: 5px 6px 6px rgba(255, 255, 255, 0.404);
+/* This class will be toggled by JS to hide the sidebar */
+.sidebar.closed {
+    transform: translateX(-100%);
 }
+
+.sidebar-profile-image {
+    margin-bottom: 20px;
+}
+
+.sidebar-profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar-profile-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--accent-color);
+}
+
 
 .logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .logo h1 {
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 38px;
+    font-weight: 700;
+    margin: 0;
 }
 
 .logo h1 span {
     font-size: 26px;
-    color: #ff7200;
+    color: var(--accent-color);
+    font-weight: 500;
 }
 
 .nav-links {
-    background-color: #1f2330cc;
-    border-radius: 50px;
-    padding-right: 15px;
-    margin-left: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
 }
 
 .nav-links a {
-    margin-left: 20px;
-    color: #ffffff;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 18px;
+    padding: 12px 15px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a.active {
+    background-color: var(--accent-color);
+    color: var(--sidebar-bg);
+    font-weight: 700;
 }
 
 .nav-links a:hover {
-    color: #ff7200;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
 }
 
-.search-bar {
+.main-content {
+    margin-left: 250px;
+    /* Default margin for desktop */
+    padding: 20px 40px;
+    flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.search-bar input[type="text"] {
-    border-radius: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    color: white;
+.main-section,
+.about-section,
+.projects-section,
+.contact-info {
+    background-color: var(--content-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    margin: 40px auto;
+    max-width: 1000px;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideIn 1s forwards;
+    animation-delay: 0.3s;
 }
 
-.search-bar input[type="text"]::placeholder {
-    color: #ff7200;
-    font-size: 14px;
-}
-
-.search-bar button[type="submit"] {
-    background-color: #9f9f9f97;
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 50px;
-    padding: 5px 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
+.main-section:hover,
+.about-section:hover,
+.projects-section:hover,
+.contact-info:hover {
+    transform: translateX(0) scale(1.01);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
 .home-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 5px 10px;
     align-items: center;
-}
-
-.main-section {
-    background-color: #394f58;
-    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    margin: 40px auto;
-    max-width: 1000px;
-    transition: transform 0.3s ease;
-
+    gap: 30px;
 }
 
 .intro-text {
     flex: 1;
-    text-align: left;
-    padding: 20px;
     min-width: 300px;
 }
 
 .intro-text h2 {
-    font-size: 36px;
-    color: rgb(225, 225, 225);
+    font-size: clamp(30px, 6vw, 48px);
+    color: var(--text-color);
+    margin-top: 0;
+    font-weight: 700;
 }
 
 .intro-text p {
-    font-size: 18px;
+    font-size: clamp(16px, 2.5vw, 18px);
     margin: 15px 0;
-    line-height: 1.6;
-    color: rgb(225, 225, 225);
 }
 
 .highlight {
-    color: #ff6600;
-    font-weight: bold;
-    font-size: 20px;
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 .profile-image {
@@ -143,176 +233,183 @@ eebody {
 }
 
 .profile-image img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    background: linear-gradient(to bottom right, rgba(1, 1, 1), rgba(0, 0, 0));
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease;
-}
-
-.main-section:hover {
-    transform: scale(1.02);
+    border: 5px solid var(--accent-color);
+    object-fit: cover;
+    box-shadow: 0 0 20px var(--accent-color);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
 .profile-image img:hover {
-    transform: scale(1.05);
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 0 40px var(--accent-color);
 }
 
 .about-section {
-    padding: 60px 20px;
     text-align: center;
-    backdrop-filter: blur(8px);
-    border-radius: 20px;
-    margin: 40px auto;
-    background-color: #394f58;
-    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    max-width: 1000px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    color: rgb(225, 225, 225);
-    transition: transform 0.3s ease;
-}
-
-.about-section:hover {
-    transform: scale(1.02);
 }
 
 .about-section h2,
 .about-section h3 {
-    font-size: 26px;
-    margin-top: 20px;
-    text-align: center;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .about-section p {
-    font-size: 18px;
-    margin: 15px 0;
-    line-height: 1.6;
+    font-size: clamp(16px, 2.5vw, 18px);
+    max-width: 700px;
+    margin: 0 auto 20px;
 }
 
-.about-section ul {
-    list-style: disc;
-    text-align: left;
-    font-size: 18px;
-}
-
-#skills {
-    justify-content: center;
+.myskills-list {
+    margin-top: 40px;
 }
 
 .skills-list {
-    align-items: center;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    width: 500px;
-
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    gap: 20px;
 }
 
 .skills-list li {
-    list-style-type: none;
-    justify-content: flex-start;
-    padding: 30px 20px;
-    margin: auto;
-    transition: transform 0.2s, color 0.3s;
+    background-color: var(--border-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .skills-list li:hover {
-    color: #ff6600;
-    transform: scale(1.5, 1.5);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.4);
 }
 
 .projects-section {
-    background-color: #394f58;
-    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    margin: 40px auto;
-    max-width: 1000px;
-    color: #ffffff;
-    transition: transform 0.3s ease;
+    text-align: center;
 }
 
-.projects-section:hover {
-    transform: scale(1.02);
+.projects-section h2 {
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    text-transform: uppercase;
 }
 
-.project-list {
-    padding: 20px 0;
+.project-list ol {
+    list-style-type: none;
+    padding: 0;
 }
 
-#projects a {
-    color: #ff7200;
+.project-list li {
+    margin-bottom: 15px;
+}
+
+.project-list a {
+    color: var(--text-color);
     text-decoration: none;
+    font-size: clamp(16px, 2.5vw, 20px);
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 0.3s ease;
 }
 
-#projects a:visited {
-    color: white;
+.project-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
 }
 
-#projects a:active {
-    color: green;
+.project-list a:hover {
+    color: var(--accent-color);
+}
+
+.project-list a:hover::after {
+    width: 100%;
 }
 
 .contact-info h1 {
-    text-align: left;
-    margin: 20px 0;
-    font-size: 26px;
-    line-height: 1.6;
-    color: rgb(225, 225, 225);
-}
-
-.contact-info {
-    background-color: #394f58;
-    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    margin: 40px auto;
-    max-width: 1000px;
-    transition: transform 0.3s ease;
-}
-
-.contact-info:hover {
-    transform: scale(1.02);
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .contact-info p,
 address {
-    margin: 5px 0;
-    text-align: left;
-    color: rgb(225, 225, 225);
+    font-size: clamp(16px, 2.5vw, 18px);
+    color: var(--text-color);
+    margin-bottom: 10px;
 }
 
 .contact-info a {
-    color: #1900ff;
+    color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: #ff6600;
+    color: #ffffff;
 }
 
 .followpage {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
     padding: 20px 0;
-    color: rgb(225, 225, 225);
-    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+
+.followpage p {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.followpage img {
+    width: 35px;
+    height: 35px;
+    padding: 0 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    filter: grayscale(100%);
 }
 
 .followpage img:hover {
-    transform: scale(1.05);
+    transform: scale(1.2);
+    filter: grayscale(0%);
 }
 
 .foot {
-    background-color: #1f1f2e;
+    background-color: var(--sidebar-bg);
     color: #ffffff;
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
