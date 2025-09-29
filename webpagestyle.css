@@ -225,28 +225,6 @@ body {
     color: var(--accent-color);
     font-weight: 700;
 }
-
-.profile-image {
-    flex: 1;
-    text-align: center;
-    min-width: 200px;
-}
-
-.profile-image img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    border: 5px solid var(--accent-color);
-    object-fit: cover;
-    box-shadow: 0 0 20px var(--accent-color);
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-}
-
-.profile-image img:hover {
-    transform: rotate(5deg) scale(1.05);
-    box-shadow: 0 0 40px var(--accent-color);
-}
-
 .about-section {
     text-align: center;
 }
@@ -413,3 +391,4 @@ address {
         transform: translateX(0);
     }
 }
+
